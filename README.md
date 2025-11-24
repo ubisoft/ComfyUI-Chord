@@ -15,12 +15,15 @@ ComfyUI Custom Node for paper: **Chord: Chain of Rendering Decomposition for PBR
 3. Install the custom nodes from the [ComfyUI-Manager](https://github.com/Comfy-Org/ComfyUI-Manager) or manually cloning this repository recursively in the custom nodes folder of ComfyUI:
 
     ```shell
-    # Clone repo
+    # 1. Clone repo
     cd ./ComfyUI/custom_nodes
     git clone --recursive https://github.com/ubisoft/ComfyUI-Chord.git
-    # Install dependencies
+    # 2. Install dependencies
+    ## For python version
     cd ComfyUI-Chord
     pip install -r requirements.txt
+    ## For windows portable version
+    ..\..\python_embeded\python.exe -s -m pip install -r .\ComfyUI-Chord\requirements.txt
     ```
 ## Example Workflow
 

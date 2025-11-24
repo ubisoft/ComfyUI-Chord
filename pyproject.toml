@@ -11,4 +11,3 @@ Repository = "https://github.com/ubisoft/ComfyUI-Chord"
 [tool.comfy]
 PublisherId = "ubisoft-laforge"
 DisplayName = "ComfyUI-Chord"
-Icon = "https://www.ubisoft.com/favicon.ico"
