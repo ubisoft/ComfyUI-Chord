@@ -29,9 +29,9 @@ ComfyUI custom node for the paper: **Chord: Chain of Rendering Decomposition for
 
 ## Example Workflow
 
-You can load this workflow using the JSON file `examples/chord_image_to_material.json` or by dropping the image in ComfyUI.
+You can load this workflow using the JSON file `example_workflows/chord_image_to_material.json` or by dropping the image in ComfyUI.
 
-![Example workflow](examples/chord_image_to_material.png)
+![Example workflow](chord_image_to_material.png)
 
 ## License
 
