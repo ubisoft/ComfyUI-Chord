@@ -12,7 +12,7 @@ from comfy.utils import load_torch_file
 from comfy.model_patcher import ModelPatcher
 
 # Modules from ComfyUI-Chord
-from chord import ChordModel
+from .chord.chord import ChordModel
 
 def apply_padding(model, mode):
     for layer in [layer for _, layer in model.named_modules() if isinstance(layer, torch.nn.Conv2d)]:
