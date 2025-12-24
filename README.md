@@ -12,9 +12,7 @@ ComfyUI custom node for the paper: **Chord: Chain of Rendering Decomposition for
 
 2. Download the pretrained model **chord_v1.safetensors** from [Hugging Face](https://huggingface.co/Ubisoft/ubisoft-laforge-chord) and place it in the folder **./ComfyUI/models/checkpoints**.
 
-3. Install the custom nodes by manually cloning this repository in the custom nodes folder, **with the argument `--recursive`**:
-
-> Note the ComfyUI-Manager does not support cloning with `--recursive` dependencies. The nodes have to be cloned manually for the moment.
+3. Install the custom nodes from the ComfyUI-Manager or by manually cloning this repository in the custom nodes folder:
 
 ```shell
 # Clone the repository
