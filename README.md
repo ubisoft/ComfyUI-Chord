@@ -20,10 +20,10 @@ cd ./ComfyUI/custom_nodes
 git clone https://github.com/ubisoft/ComfyUI-Chord.git
 
 # Install dependencies
-## Or for Windows portable version
+## For Windows portable version
 ..\..\python_embeded\python.exe -s -m pip install -r .\ComfyUI-Chord\requirements.txt
 
-## For Python version
+## Or for Python version
 pip install -r .\ComfyUI-Chord\requirements.txt
 ```
 
