@@ -29,7 +29,12 @@ def freeze(model):
 class StableDiffusion(Base):
     def setup(self):
         hf_key = self.config.get("hf_key", None)
-        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        if torch.cuda.is_available():
+            self.device = torch.device("cuda")
+        elif torch.backends.mps.is_available():
+            self.device = torch.device("mps")
+        else:
+            self.device = torch.device("cpu")
         fp16 = self.config.get("fp16", True)
         self.dtype = torch.bfloat16 if fp16 else torch.float32
         vae_padding = self.config.get("vae_padding", "zeros")
@@ -62,7 +67,7 @@ class StableDiffusion(Base):
         # 3. Text encoder (CLIP)
         text_encoder_config = CLIPTextConfig.from_pretrained(model_key, subfolder="text_encoder", local_files_only=local_files_only)
         self.text_encoder = CLIPTextModel(text_encoder_config)
-        self.text_encoder.to(self.device, dtype=self.dtype).eval()
+        self.text_encoder = self.text_encoder.to(self.device, dtype=self.dtype).eval()
         # 4. Tokenizer (CLIP tokenizer, this one has vocab so from_pretrained is needed)
         self.tokenizer = CLIPTokenizer.from_pretrained(model_key, subfolder="tokenizer", local_files_only=local_files_only)
         # 5. Scheduler
@@ -74,6 +79,7 @@ class StableDiffusion(Base):
 
     def encode_text(self, prompt, padding_mode="do_not_pad"):
         # prompt: [str]
+        self.text_encoder = self.text_encoder.to(self.device)  # force materialization for MPS
         inputs = self.tokenizer(
             prompt,
             padding=padding_mode,
